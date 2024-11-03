@@ -4,7 +4,11 @@
       "servers": {
         "sirtunnel": {
           "listen": [":8443"],
+          "automatic_https": {
+            "disable_redirects": true
+          },
           "routes": [
+            // Add your routes here if needed
           ]
         }
       }
