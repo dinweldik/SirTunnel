@@ -8,7 +8,6 @@
             "disable_redirects": true
           },
           "routes": [
-            // Add your routes here if needed
           ]
         }
       }
