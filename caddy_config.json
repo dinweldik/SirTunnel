@@ -34,16 +34,19 @@
         "policies": [
           {
             "subjects": ["484.cx", "*.484.cx"],
-            "issuer": {
-              "module": "acme",
-              "challenges": {
-                "dns": {
-                  "provider": {
-                    "name": "cloudflare"
+            "issuers": [
+              {
+                "module": "acme",
+                "email": "your-email@example.com",
+                "challenges": {
+                  "dns": {
+                    "provider": {
+                      "name": "cloudflare"
+                    }
                   }
                 }
               }
-            }
+            ]
           }
         ]
       }
