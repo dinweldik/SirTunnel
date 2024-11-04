@@ -8,8 +8,44 @@
             "disable_redirects": true
           },
           "routes": [
+            {
+              "match": [
+                {
+                  "host": ["484.cx", "*.484.cx"]
+                }
+              ],
+              "handle": [
+                {
+                  "handler": "reverse_proxy",
+                  "upstreams": [
+                    {
+                      "dial": "localhost:8080"
+                    }
+                  ]
+                }
+              ]
+            }
           ]
         }
+      }
+    },
+    "tls": {
+      "automation": {
+        "policies": [
+          {
+            "subjects": ["484.cx", "*.484.cx"],
+            "issuer": {
+              "module": "acme",
+              "challenges": {
+                "dns": {
+                  "provider": {
+                    "name": "cloudflare"
+                  }
+                }
+              }
+            }
+          }
+        ]
       }
     }
   }
